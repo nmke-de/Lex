@@ -1,6 +1,6 @@
 # Lex
 
-Lex is a simple lexer library that provides one function, `C nextword(word_t *)`.
+Lex is a simple lexer library that provides one function, `nextword(word_t *)`.
 
 ## But why?
 
