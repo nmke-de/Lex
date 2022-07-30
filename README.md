@@ -13,9 +13,29 @@ Because I can.
 
 ## Build
 
-Makefile incoming soon™.
+Type `make`.
 
 ## Usage
 
-Coming soon™.
+To see a more interesting example, see [here](https://github.com/nmke-de/rpn).
 
+```C
+#include "Lex/lex.h"
+#include <stdio.h>
+
+// Program to return the sum of numbers that occur in input and print any other occuring character.
+int main() {
+	int sum = 0;
+	word_t w;
+	
+	while(nextword(&w)) {
+		if(w.type == num) {
+			sum += w.core.n;
+		}else if(w.type == key) {
+			putc(w.core.k);
+		}
+	}
+	
+	return sum;
+}
+```
