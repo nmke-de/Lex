@@ -1,4 +1,9 @@
-all: lex
+build: lex.o
 
-lex: lex.c
+lex.o: lex.c
 	$(CC) -c -o lex.o lex.c
+
+clean:
+	rm lex.o
+
+all: build clean
