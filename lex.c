@@ -3,7 +3,7 @@
 
 static inline void shift (char c[2]){
 	*c = *(c + 1);
-	*(c + 1) = getchar();
+	*(c + 1) = fgetc(stdin);
 }
 
 int nextword (word_t* w){
@@ -11,11 +11,11 @@ int nextword (word_t* w){
 	static char c[2];
 	/*void shift(){
 		c[0] = c[1];
-		c[1] = getchar();
+		c[1] = fgetc(stdin);
 	}*/
 	if(init){
-		c[0] = getchar();
-		c[1] = getchar();
+		c[0] = fgetc(stdin);
+		c[1] = fgetc(stdin);
 		init = 0;
 	}else
 		shift(c);
