@@ -9,10 +9,6 @@ static inline void shift (char c[2]){
 int nextword (word_t* w){
 	static int init = 1;
 	static char c[2];
-	/*void shift(){
-		c[0] = c[1];
-		c[1] = fgetc(stdin);
-	}*/
 	if(init){
 		c[0] = fgetc(stdin);
 		c[1] = fgetc(stdin);
