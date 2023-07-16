@@ -13,5 +13,11 @@ typedef struct {
 	wordtype_t type;
 } word_t;
 
-int nextword(word_t *w);
+/**
+nextword returns whether there are still characters to read.
+The first argument is a word_t object, which is manipulated.
+The further arguments exist to read in data. This is used
+as an interface to allow both buffers and streams as input.
+*/
+int nextword(word_t *, char (*)(void *), void *);
 #endif

@@ -1,20 +1,20 @@
 #include <stdio.h>
 #include "lex.h"
 
-static inline void shift(char c[2]) {
+static inline void shift(char c[2], char nextchar) {
 	*c = *(c + 1);
-	*(c + 1) = fgetc(stdin);
+	*(c + 1) = nextchar;
 }
 
-int nextword(word_t *w) {
+int nextword(word_t *w, char (*nextchar)(void *), void *input) {
 	static int init = 1;
 	static char c[2];
 	if (init) {
-		c[0] = fgetc(stdin);
-		c[1] = fgetc(stdin);
+		c[0] = nextchar(input);
+		c[1] = nextchar(input);
 		init = 0;
 	} else
-		shift(c);
+		shift(c, nextchar(input));
 	if (!c[0])
 		return 0;
 	switch (c[0]) {
@@ -29,7 +29,7 @@ int nextword(word_t *w) {
 		case '8':
 		case '9':
 			int n = 0;
-			for (; c[1] >= 48 && c[1] <= 57; shift(c))
+			for (; c[1] >= 48 && c[1] <= 57; shift(c, nextchar(input)))
 				n = 10 * n + (c[0] - '0');
 			n = 10 * n + (c[0] - '0');
 			w->core.n = n;
