@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "lex.h"
 
 static inline void shift(char c[2], char nextchar) {
