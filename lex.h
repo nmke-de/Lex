@@ -2,15 +2,16 @@
 #define LEX_H
 typedef union {
 	char k;
-	int  n;
+	int n;
 } wordcore_t;
 typedef enum {
-	key,num
+	key,
+	num
 } wordtype_t;
 typedef struct {
 	wordcore_t core;
 	wordtype_t type;
 } word_t;
 
-int nextword (word_t* w);
+int nextword(word_t *w);
 #endif
