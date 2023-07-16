@@ -28,10 +28,10 @@ int main() {
 	int sum = 0;
 	word_t w;
 	
-	while(nextword(&w)) {
-		if(w.type == num) {
+	while (nextword(&w)) {
+		if (w.type == num) {
 			sum += w.core.n;
-		}else if(w.type == key) {
+		} else if (w.type == key) {
 			putc(w.core.k);
 		}
 	}
