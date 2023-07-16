@@ -8,8 +8,9 @@ Because I can.
 
 ## Dependencies
 
-- libc which implements stdio.h
 - C compiler
+
+This library should also work in environments without libc.
 
 ## Build
 
